@@ -48,7 +48,7 @@ pipeline {
                 }
             }
         }
-        tage("Build Image"){
+        stage("Build Image"){
             steps{
                 script{
                     buildDockerImage(version,"flaskpoetry")
