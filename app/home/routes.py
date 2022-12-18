@@ -9,3 +9,8 @@ def home_():
 @home.route('/<string:name>', methods=['GET'])
 def returnname(name):
     return f"{name} was passed in the URL"
+
+
+@home.route('/name/<string:name>', methods=['GET'])
+def printname(name):
+    return f"Name to be printed is {name}"
