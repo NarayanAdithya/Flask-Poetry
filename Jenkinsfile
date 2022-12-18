@@ -40,10 +40,32 @@ pipeline {
                 }
             }
         }
-        stage(" Print version"){
+        stage("MakeVersionCommit"){
             steps{
                 script{
-                    getVersion("pyproject.toml")
+                    version=getVersion("pyproject.toml")
+                    makeupdatecommit("Flask-Poetry")
+                }
+            }
+        }
+        tage("Build Image"){
+            steps{
+                script{
+                    buildDockerImage(version,"flaskpoetry")
+                }
+            }
+        }
+        stage("Login"){
+            steps{
+                script{
+                    dockerLogin()
+                }
+            }
+        }
+        stage("Push Artifact"){
+            steps{
+                script{
+                    dockerPush(version,"flaskpoetry")
                 }
             }
         }
