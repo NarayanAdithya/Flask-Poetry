@@ -1,5 +1,7 @@
-@Library('poetry-jenkins-library')_
+@Library('poetry-jenkins-library')
+@Library('python-app-library')
 
+def version
 pipeline {
     agent any
     stages{
@@ -28,6 +30,20 @@ pipeline {
             steps{
                 script{
                     poetryTest()
+                }
+            }
+        }
+        stage("IncVersion"){
+            steps{
+                script{
+                    poetryBump()
+                }
+            }
+        }
+        stage(" Print version"){
+            steps{
+                script{
+                    getVersion("pyproject.toml")
                 }
             }
         }
