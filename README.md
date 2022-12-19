@@ -24,4 +24,4 @@ Poetry is a python dependecy manager which is very much analogous to npm for JS 
 
 <h1 align="center"> Jenkins </h1>
 
-A multibranch project has been setup with a Multibranch webhook trigger setup to build the latest release on a commit. The Jenkins has also been configured with Build Trigger Extension to prevent build on certain file changes like README.md etc. The Embeddable Status Plugin was used to create the badge shown on the top of the README.md file.
+A multibranch project has been setup with a Multibranch webhook trigger setup to build the latest release on a commit. The Jenkins has also been configured with Build Trigger Extension to prevent build on certain file changes like README.md etc. The Embeddable Status Plugin was used to create the badge shown on the top of the README.md file. Jenkins is making use of two custom defined libraries one for poetry and one for normal python build commands. These repo's can be found <a href="https://github.com/NarayanAdithya/python-jenkins-shared-library"> here </a> and <a href="https://github.com/NarayanAdithya/poetry-jenkins-library"> here </a>
